@@ -23,17 +23,20 @@ function Analysis() {
 
   return (
     <div>
-      <h1>Images</h1>
-      <div>
+      <h1 className='items-center text-center text-2xl text-slate-700 lora-font'>Data Analysis</h1>
+      <div className='flex flex-wrap justify-center ml-10'>
         {images.map((image, index) => (
-          <div key={index}>
-            <h3>{image.name}</h3>
-            <img src={`data:image/png;base64,${image.data}`} alt={image.name} />
+          <div key={index} className='w-1/2 p-2 flex flex-col items-center'>
+            <img src={`data:image/png;base64,${image.data}`} alt={image.name} className='max-w-full h-auto' style={{ margin: 'auto' }} />
+            <h3 className="text-center">{image.name}</h3>
           </div>
         ))}
       </div>
     </div>
   );
+  
+  
+  
 }
 
 export default Analysis;
