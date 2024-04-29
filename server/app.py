@@ -16,7 +16,7 @@ def index():
     ]
     images = []
     for image_name in image_names:
-        image_path = f'/home/yuvraj/Coding/Exploratory-Data-Analysis-Mental-Health-Problem-master/figures/{image_name}'
+        image_path = f'/Users/tanishakanal/Documents/Sem4/Python/Mini Project/python-mini-project/figures/${image_name}'
         image = cv2.imread(image_path)
         print(image)
         if image is not None:
