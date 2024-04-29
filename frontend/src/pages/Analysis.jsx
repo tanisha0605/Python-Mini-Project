@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
 function Analysis() {
   const [images, setImages] = useState([]);
@@ -10,17 +9,17 @@ function Analysis() {
 
   const fetchImages = async () => {
     try {
-      const response = await axios.get('http://localhost:5000', {
-        headers: {
-          'Content-Type': 'application/json', // Example of a custom header
-          // Add more headers as needed
-        }
-      });
-      setImages(response.data.images);
+      const response = await fetch('http://localhost:5000/');
+      if (!response.ok) {
+        throw new Error(`Failed to fetch images: ${response.status} ${response.statusText}`);
+      }
+      const data = await response.json();
+      setImages(data.images);
     } catch (error) {
       console.error('Error fetching images:', error);
     }
   };
+  
 
   return (
     <div>
@@ -38,6 +37,4 @@ function Analysis() {
 }
 
 export default Analysis;
-
-
 
